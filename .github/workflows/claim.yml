@@ -33,7 +33,7 @@ jobs:
               run: mkdir .egstore
 
             - name: Fix launch the browser
-              run: sudo apt-get -y install imagemagick x11-apps & Xvfb -ac :99 -screen 0 1280x1024x16 & export DISPLAY=:99
+              run: sudo apt-get install chromium-browser
 
             - name: Get Epic Freebies
               run: yarn start ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} 0 ${{ secrets.SECRETKEY }}
