@@ -9,7 +9,7 @@ on: # When to run this workflow
 #        types: [started] # When repo owner stars this repo
 
     schedule:
-        - cron: "17 21 * * *" # Everyday at 00:00 UTC
+        - cron: "18 48 * * *" # Everyday at 00:00 UTC
 
 jobs:
     claim:
@@ -31,6 +31,9 @@ jobs:
 
             - name: Hotfix for \#4 # https://github.com/xuac/claim-epic-freebies/issues/4
               run: mkdir .egstore
+
+            - name: Fix launch the browser
+              run: sudo apt-get install -y xvfb & sudo apt-get -y install xorg xvfb gtk2-engines-pixbuf & sudo apt-get -y install dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable & Xvfb -ac :99 -screen 0 1280x1024x16 & export DISPLAY=:99 
 
             - name: Get Epic Freebies
               run: yarn start ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} 0 ${{ secrets.SECRETKEY }}
