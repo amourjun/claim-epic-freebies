@@ -33,7 +33,7 @@ jobs:
               run: mkdir .egstore
 
             - name: Fix launch the browser
-              run: sudo apt-get install -y xvfb & sudo apt-get -y install xorg xvfb gtk2-engines-pixbuf & sudo apt-get -y install dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable & Xvfb -ac :99 -screen 0 1280x1024x16 & export DISPLAY=:99 
+              run: wsl --set-default-version 2
 
             - name: Get Epic Freebies
               run: yarn start ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} 0 ${{ secrets.SECRETKEY }}
